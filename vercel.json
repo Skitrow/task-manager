@@ -9,6 +9,10 @@
       "destination": "https://us.i.posthog.com/decide"
     },
     {
+      "source": "/config(.*)",
+      "destination": "https://us.i.posthog.com/config$1"
+    },
+    {
       "source": "/v-status/(.*)",
       "destination": "https://us.i.posthog.com/$1"
     }
