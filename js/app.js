@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskText = taskInput.value.trim();
         if (taskText !== '') {
             const li = document.createElement('li');
-            li.textContent = taskText;
+            li.textContent = `[${prioritySelect.value}] ${taskText}`;
             taskList.appendChild(li);
             taskInput.value = '';
         }
