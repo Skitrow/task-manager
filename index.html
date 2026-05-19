@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager - Lab 1</title>
+    <title>Task Manager - Lab 3</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1 style="color: red;">Мої завдання</h1>
+        <h1>Мої завдання (<span id="envStatus"></span>)</h1>
         <div class="input-section">
             <input type="text" id="taskInput" placeholder="Додати нове завдання...">
             <select id="prioritySelect" name="priority">
@@ -21,6 +21,6 @@
         <ul id="taskList">
             </ul>
     </div>
-    <script src="js/app.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
