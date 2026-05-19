@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         priority: prioritySelect.value,
                         text_length: taskText.length
                     });
+                    // Після posthog.capture(...) додай:
+                    console.log("Event sent to PostHog!");
                 }
 
                 // 3. Очищення поля введення
