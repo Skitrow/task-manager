@@ -1,3 +1,5 @@
+[![CI/CD Pipeline](https://github.com/Skitrow/task-manager/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Skitrow/task-manager/actions/workflows/ci-cd.yml)
+[Актуальна версія проєкту](https://task-manager-ashen-eta-23.vercel.app/)
 # Git Lab Task Manager 📝
 
 **One-liner:** Мінімалістичний веб-застосунок для керування щоденними завданнями, створений для демонстрації навичок роботи з Git.
