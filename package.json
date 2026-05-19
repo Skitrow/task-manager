@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"**/*.js\"",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run tests/useTasks.test.js"
   },
   "repository": {
     "type": "git",
