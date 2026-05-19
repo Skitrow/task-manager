@@ -1,3 +1,12 @@
+import posthog from 'posthog-js';
+
+posthog.init('phc_obuvMzHKcncyhXc9YghmkMAJerhiuuiRF2SofoGVmPCA', {
+    api_host: window.location.origin + '/v-status',
+    ui_host: 'https://us.posthog.com',
+    person_profiles: 'always'
+});
+window.posthog = posthog;
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('taskInput');
     const prioritySelect = document.getElementById('prioritySelect');
