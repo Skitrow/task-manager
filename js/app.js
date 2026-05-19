@@ -4,8 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById('addTaskBtn');
     const taskList = document.getElementById('taskList');
     const envStatus = document.getElementById('envStatus');
+    const urgentBtn = document.getElementById('urgent-btn');
 
-    // Відображення змінної оточення в інтерфейсі (з Лабораторної роботи №3)
+    if (window.posthog) {
+        window.posthog.onFeatureFlags(() => {
+            if (window.posthog.isFeatureEnabled('show-urgent-filter')) {
+                if (urgentBtn) {
+                    urgentBtn.style.display = 'inline-block';
+                }
+            }
+        });
+    }
+
     if (envStatus) {
         envStatus.textContent = import.meta.env.VITE_APP_STATUS || 'Local';
     }
@@ -15,22 +25,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const taskText = taskInput.value.trim();
             
             if (taskText !== '') {
-                // 1. Створення та додавання елемента завдання в DOM
                 const li = document.createElement('li');
-                li.textContent = `[${prioritySelect.value}] ${taskText}`;
+                
+                const span = document.createElement('span');
+                span.textContent = `[${prioritySelect.value}] ${taskText}`;
+                li.appendChild(span);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Видалити';
+                deleteBtn.style.marginLeft = '10px';
+                deleteBtn.style.cursor = 'pointer';
+                deleteBtn.addEventListener('click', () => {
+                    li.remove();
+                    if (window.posthog) {
+                        window.posthog.capture('task_deleted', {
+                            priority: prioritySelect.value,
+                            reason: 'user_action'
+                        });
+                    }
+                });
+                li.appendChild(deleteBtn);
+
                 taskList.appendChild(li);
                 
-                // 2. Реалізація кастомної події для продуктової аналітики PostHog
                 if (window.posthog) {
                     window.posthog.capture('task_created', {
                         priority: prioritySelect.value,
                         text_length: taskText.length
                     });
-                    // Після posthog.capture(...) додай:
-                    console.log("Event sent to PostHog!");
                 }
 
-                // 3. Очищення поля введення
                 taskInput.value = '';
             }
         });
