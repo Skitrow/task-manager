@@ -22,12 +22,13 @@
           tracesSampleRate: 1.0,
           environment: "production"
         });
-        // Крок 3: Встановлення контексту користувача
+        // Встановлення ідентифікатора користувача
         Sentry.setUser({
           id: "12345",
-          email: "student@example.com",
-          segment: "premium_user"
+          email: "student@example.com"
         });
+        // Встановлення кастомного тегу для сегментації
+        Sentry.setTag("segment", "premium_user");
       });
     </script>
 </head>
@@ -36,7 +37,7 @@
         <h1>Мої завдання (<span id="envStatus"></span>)</h1>
         <!-- Кнопка для Кроку 2 -->
         <div style="margin-bottom: 20px;">
-            <button id="break-world-btn" style="background-color: #ff4757; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold;">Break the world (Викликати помилку)</button>
+            <button id="break-world-btn" style="background-color: #ff4757; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold;">Break ml world (Викликати помилку)</button>
         </div>
         <div class="input-section">
             <input type="text" id="taskInput" placeholder="Додати нове завдання...">
