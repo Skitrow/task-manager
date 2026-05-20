@@ -12,6 +12,11 @@ export default defineConfig({
         target: 'https://us.i.posthog.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/v-status/, '')
+      },
+      '/sentry-cdn': {
+        target: 'https://js-de.sentry-cdn.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/sentry-cdn/, '')
       }
     }
   }

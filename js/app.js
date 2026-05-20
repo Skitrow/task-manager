@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const urgentBtn = document.getElementById('urgent-btn');
     const breakBtn = document.getElementById('break-world-btn');
 
-    // Крок 2: Симуляція помилки
     if (breakBtn) {
         breakBtn.addEventListener('click', () => {
-            throw new Error("Sentry Test Error: Something went wrong!");
+            throw new Error("CRITICAL ALERT: Payment system crashed!");
         });
     }
 

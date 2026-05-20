@@ -1,12 +1,16 @@
 {
   "rewrites": [
     {
-      "source": "/v-status/static/(.*)",
-      "destination": "https://us-assets.i.posthog.com/static/$1"
+      "source": "/v-status/static/:path*",
+      "destination": "https://us-assets.i.posthog.com/static/:path*"
     },
     {
-      "source": "/v-status/(.*)",
-      "destination": "https://us.i.posthog.com/$1"
+      "source": "/v-status/:path*",
+      "destination": "https://us.i.posthog.com/:path*"
+    },
+    {
+      "source": "/sentry-cdn/:path*",
+      "destination": "https://js-de.sentry-cdn.com/:path*"
     }
   ]
 }
