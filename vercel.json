@@ -7,10 +7,6 @@
     {
       "source": "/v-status/:path*",
       "destination": "https://us.i.posthog.com/:path*"
-    },
-    {
-      "source": "/sentry-cdn/:path*",
-      "destination": "https://js-de.sentry-cdn.com/:path*"
     }
   ]
 }
